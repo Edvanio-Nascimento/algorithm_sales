@@ -19,20 +19,6 @@ public class ProductModel extends Auditing {
         this.sku = sku.toUpperCase();
         this.price = price;
 
-        if (this.sku == null || this.sku.isBlank()) {
-            throw new IllegalArgumentException("SKU inválido");
-        }
-
-        if ((this.sku.trim().length() > 20) || (this.sku.trim().length() < 5)) {
-            throw new IllegalArgumentException("Deve conter no máximo 20 caracteres");
-        }
-
-        if (this.name == null || this.name.isBlank()) {
-            throw new IllegalArgumentException("Nome inválido");
-        }
-        if (this.name.trim().length() < 5) {
-            throw new IllegalArgumentException("O campo nome deve conter ao menos 5 caracteres");
-        }
     }
 
     // SETTTERS

@@ -16,34 +16,7 @@ public class ClientModel extends Auditing{
         this.name = name.toUpperCase();
         this.email = email.trim().toLowerCase();
         this.cpf = maskCpf(cpfMask);
-        this.phone = maskPhone(phoneMask);
-
-        if (this.getName() == null || this.getName().trim().isBlank()) {
-            throw new IllegalArgumentException("Nome inválido");
-        }
-
-        if (this.getName().trim().length() < 5 || this.getName().trim().length() > 70) {
-            throw new IllegalArgumentException("O campo nome deve conter entre 5 e 70 caracteres");
-        }
-
-        String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
-        if (this.getEmail() == null || !this.getEmail().matches(emailRegex)) {
-            throw new IllegalArgumentException("E-mail inválido");
-        }
-        if (this.getEmail().length() < 5 || this.getEmail().trim().length() > 50) {
-            throw new IllegalArgumentException("O e-mail Deve conter entre 5 e 50 caracteres");
-        }
-
-        cpfMask.matches("\\d{11}");
-        if (cpfMask.length() != 11) {
-            throw new IllegalArgumentException("Formato inválido o cpf deve conter 11 caracteres");
-        }
-
-
-        phoneMask.matches("\\d{11}");
-        if (phoneMask.length() != 11) {
-            throw new IllegalArgumentException("O campo phone deve conter exatamente 11 caracteres");
-        }
+        this.phone = maskPhone(phoneMask);        
 
     }
 
