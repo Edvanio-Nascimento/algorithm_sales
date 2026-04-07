@@ -10,29 +10,14 @@ public class ClientModel extends Auditing{
     private final String cpf;
     private String phone;
 
-    public ClientModel(String name, String email, String cpfMask, String phoneMask) {
+    public ClientModel(String name, String email, String cpf, String phone) {
         super();
         this.id = UUID.randomUUID();
         this.name = name.toUpperCase();
         this.email = email.trim().toLowerCase();
-        this.cpf = maskCpf(cpfMask);
-        this.phone = maskPhone(phoneMask);        
+        this.cpf = cpf;
+        this.phone = phone;
 
-    }
-
-    public String maskCpf(String cpfPure) {
-        return  cpfPure.substring(0, 3) + "." +
-                cpfPure.substring(3, 6) + "."  +
-                cpfPure.substring(6, 9) + "-" +
-                cpfPure.substring(9, 11);
-
-    }
-
-    private String maskPhone(String phonePure) {
-        return  "(" +
-                phonePure.substring(0, 2) + ") " +
-                phonePure.substring(2, 7) + "-" +
-                phonePure.substring(7, 11) ;
     }
 
     // SETTERS
